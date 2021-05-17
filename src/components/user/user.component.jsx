@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import Card from "../card/card.component";
 
-const User = () => {
-  const [user, setUser] = useState(null);
+import useFetchArrayWithUrl from "../../effects/use-fetch.effect";
+
+const User = ({ userId }) => {
+  const user = useFetchArrayWithUrl(
+    `https://jsonplaceholder.typicode.com/users?id=${userId}`
+  );
 
   return (
     <Card>

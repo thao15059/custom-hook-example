@@ -2,8 +2,12 @@ import React, { useState } from "react";
 
 import Card from "../card/card.component";
 
-const Post = () => {
-  const [post, setPost] = useState(null);
+import useFetchArrayWithUrl from "../../effects/use-fetch.effect";
+
+const Post = ({ postId }) => {
+  const post = useFetchArrayWithUrl(
+    `https://jsonplaceholder.typicode.com/posts?id=${postId}`
+  );
 
   return (
     <Card>
